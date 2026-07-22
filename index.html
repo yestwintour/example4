@@ -1,0 +1,389 @@
+
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лидер vs Жертва · Дизайн-лендинг</title>
+  <!-- Шрифты для современного вида -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0d12;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 2rem 1.5rem;
+      color: #eef2f6;
+      display: flex;
+      justify-content: center;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* ---------- ГРАДИЕНТНЫЙ ЗАГОЛОВОК С ПРОЗРАЧНОСТЬЮ ---------- */
+    .hero-title {
+      font-size: clamp(2.6rem, 10vw, 4.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #d6b4fc, #a78bfa, #7c8cf0, #6ee7ff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradShift 6s ease-in-out infinite alternate;
+      text-shadow: 0 0 30px rgba(120, 119, 198, 0.2);
+      max-width: 900px;
+    }
+
+    @keyframes gradShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #b9c4d4;
+      margin-bottom: 3rem;
+      border-left: 4px solid #7c8cf0;
+      padding-left: 1.2rem;
+      max-width: 700px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    /* ---------- КАРТОЧКИ С АНИМАЦИЕЙ ПРИ НАВЕДЕНИИ ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 3.5rem 0 3rem;
+    }
+
+    .card {
+      background: #161b24;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.25s ease;
+      border: 1px solid #2a313c;
+      backdrop-filter: blur(2px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(80, 70, 200, 0.25);
+      background: #1f2732;
+      border-color: #6d7ed9;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      background: linear-gradient(145deg, #d4c6ff, #96b0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      color: #cdd9e9;
+      font-size: 0.98rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .card .highlight {
+      color: #b7c9ff;
+      font-weight: 500;
+    }
+
+    .card .badge {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: #2d3643;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      color: #b3c7f0;
+      border: 1px solid #3f4a5a;
+    }
+
+    /* ---------- КЕЙСЫ (ВЫДЕЛЕННЫЕ БЛОКИ) ---------- */
+    .case-block {
+      background: #131a22;
+      border-radius: 24px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2.5rem 0 2.8rem;
+      border-left: 6px solid #7c8cf0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      transition: background 0.2s;
+    }
+
+    .case-block:hover {
+      background: #19222c;
+    }
+
+    .case-block h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #d0deff;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .case-block h3 span {
+      background: #3d4b62;
+      font-size: 0.9rem;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+      color: #d6e2ff;
+    }
+
+    .case-block p {
+      color: #bfcee5;
+      font-size: 1rem;
+      max-width: 800px;
+    }
+
+    /* ---------- СЕТКА ИНСТРУМЕНТОВ (ТЕГИ) ---------- */
+    .tools-section {
+      margin: 3rem 0 2rem;
+    }
+
+    .tools-section h4 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #aab9d4;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .tags-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      align-items: center;
+    }
+
+    .tag {
+      background: #1e2631;
+      padding: 0.5rem 1.3rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #cedcf5;
+      border: 1px solid #313d4e;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      letter-spacing: 0.01em;
+    }
+
+    .tag:hover {
+      background: #2f3b4e;
+      border-color: #8899dd;
+      color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(70, 80, 200, 0.25);
+    }
+
+    .tag-accent {
+      background: #3a3f6b;
+      border-color: #6d7ed9;
+      color: #e3eaff;
+    }
+
+    /* ---------- АДАПТИВ ---------- */
+    @media (max-width: 680px) {
+      body { padding: 1.2rem 0.8rem; }
+
+      .hero-title {
+        font-size: 2.4rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+        padding-left: 0.9rem;
+        border-left-width: 3px;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .case-block {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .case-block h3 {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+      }
+
+      .tags-grid {
+        gap: 0.6rem 0.7rem;
+      }
+
+      .tag {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- АКЦЕНТНЫЕ ЭЛЕМЕНТЫ (доп. визуальная иерархия) ---------- */
+    .accent-rule {
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #7c8cf0, #b19aff);
+      border-radius: 4px;
+      margin: 0.5rem 0 1.2rem 0;
+    }
+
+    .text-glow {
+      color: #d3dfff;
+      font-weight: 500;
+    }
+
+    .mt-2 { margin-top: 1.2rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+
+    /* дополнительный акцент на цитате */
+    .quote-inset {
+      background: #10161e;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 1.5rem;
+      border: 1px solid #2c3646;
+    }
+
+    .quote-inset p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #e6edfd;
+    }
+    .quote-inset i {
+      color: #9eb0e6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ГРАДИЕНТНЫЙ ЗАГОЛОВОК -->
+    <h1 class="hero-title">«Если не получается — просто пробовать снова»</h1>
+    <div class="hero-sub">
+      Лидер меняет взгляд, тактику, стратегию. Жертва закапывается в анализе провала, а страх парализует её действия.
+    </div>
+
+    <!-- КАРТОЧКИ НАВЫКОВ / ТЕЗИСЫ -->
+    <div class="cards-grid">
+      <!-- карточка 1 -->
+      <div class="card">
+        <div class="card-title">«Все отношения создаю я»</div>
+        <p><span class="highlight">Лидер</span> берёт ответственность на 100%, вкладывается в людей и выходит из коммуникации, если не совпали ценности и цели.</p>
+        <p style="margin-top: 0.8rem; color: #b0bfdb;"><span class="highlight">Жертва</span> цепляется за отношения, а если не вышло — обвиняет других, пытаясь так самоутвердиться.</p>
+        <div class="badge">ответственность</div>
+      </div>
+
+      <!-- карточка 2 -->
+      <div class="card">
+        <div class="card-title">«Мир меняется — и это моё преимущество»</div>
+        <p>Пока другие боятся перемен, <span class="highlight">лидеры</span> используют их как трамплин. Кризис, новые технологии, конкуренция — всё это топливо для роста.</p>
+        <div class="badge">адаптивность</div>
+      </div>
+
+      <!-- карточка 3 -->
+      <div class="card">
+        <div class="card-title">«Отдых — ресурс для результатов»</div>
+        <p>Обратите внимание, как успешные люди проводят время: у них есть хобби, путешествия, время для семьи и друзей. А у вас?</p>
+        <div class="badge">баланс</div>
+      </div>
+    </div>
+
+    <!-- ВЫДЕЛЕННЫЙ БЛОК КЕЙСА / АКЦЕНТ -->
+    <div class="case-block">
+      <h3>
+        <span>⚡ КЕЙС</span> 
+        <span style="font-weight: 400; font-size: 0.95rem; background: none; padding: 0; color: #b3c6ea;">лидерская установка</span>
+      </h3>
+      <div class="accent-rule"></div>
+      <p><strong style="color: #d6e2ff;">«Деньги есть у всех»</strong> — это не про кошелёк, а про мышление. Лидер видит возможности там, где жертва — препятствия. Переключите фокус с «почему нет» на «как сделать».</p>
+      <p style="margin-top: 0.8rem; color: #b6c9ec; font-size: 0.95rem;">🟢 Пример: вместо «у меня нет бюджета» → «какой бюджет я могу привлечь?»</p>
+    </div>
+
+    <!-- ДОПОЛНИТЕЛЬНЫЙ КЕЙС (второй выделенный блок) -->
+    <div class="case-block" style="border-left-color: #b19aff; margin-top: 1.2rem;">
+      <h3>
+        <span>🧩 КЕЙС</span>
+        <span style="font-weight: 400; font-size: 0.95rem; background: none; padding: 0; color: #b3c6ea;">стратегия лидера</span>
+      </h3>
+      <div class="accent-rule" style="background: linear-gradient(90deg, #b19aff, #d6b4fc);"></div>
+      <p><strong style="color: #d6e2ff;">Кризис = трамплин.</strong> В 2023 году команда стартапа перенаправила ресурсы в digital, увеличив выручку на 40% за квартал. Вместо увольнений — переобучение.</p>
+      <p style="margin-top: 0.6rem; color: #b6c9ec;">✅ Результат: гибкость и опережение конкурентов.</p>
+    </div>
+
+    <!-- СЕТКА ИНСТРУМЕНТОВ (ТЕГИ) -->
+    <div class="tools-section">
+      <h4>🛠 Инструменты лидера · стек мышления</h4>
+      <div class="tags-grid">
+        <span class="tag tag-accent">Ответственность</span>
+        <span class="tag">Адаптивность</span>
+        <span class="tag">Эмпатия</span>
+        <span class="tag tag-accent">Стратегия</span>
+        <span class="tag">Коммуникация</span>
+        <span class="tag">Рефлексия</span>
+        <span class="tag tag-accent">Ресурсность</span>
+        <span class="tag">Дисциплина</span>
+        <span class="tag">Видение</span>
+        <span class="tag tag-accent">Рост</span>
+      </div>
+    </div>
+
+    <!-- ЦИТАТА / АКЦЕНТНЫЙ БЛОК (доп. иерархия) -->
+    <div class="quote-inset">
+      <p style="font-size: 1.3rem; font-weight: 500; background: linear-gradient(145deg, #d0dfff, #b3c6f0); -webkit-background-clip: text; background-clip: text; color: transparent;">
+        «Лидер — это не должность, а состояние ума»
+      </p>
+      <div style="height: 2px; width: 80px; background: #5a6fc0; margin: 0.6rem 0 0.8rem;"></div>
+      <p style="color: #bacceb; font-size: 0.98rem;">
+        Перемены, отношения, отдых, деньги — всё это проекции вашего внутреннего выбора. 
+        <span style="color: #d4e0ff; font-weight: 500;">Каждый день вы решаете: быть лидером или жертвой.</span>
+      </p>
+    </div>
+
+    <!-- ФУТЕР / МИКРО-АКЦЕНТ -->
+    <div style="margin-top: 2.5rem; font-size: 0.8rem; color: #6a7b96; border-top: 1px solid #212a36; padding-top: 1.8rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+      <span>© 2025 · мышление лидера</span>
+      <span style="display: flex; gap: 1rem;">
+        <span style="color: #8899cc;">#рост</span>
+        <span style="color: #8899cc;">#осознанность</span>
+        <span style="color: #8899cc;">#действие</span>
+      </span>
+    </div>
+  </div>
+</body>
+</html>
